@@ -312,7 +312,6 @@ $('#triangle-close-callback').pt({
 
 $('#tooltips-no-arrow').pt({
 	arrow:false,
-	target:self,
 	content:content
 });
 
