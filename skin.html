@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>tooltips</title>
+	<meta name="keywords" content="tooltips tooltips.js jquery.tooltips.js 弹出层 插件"/>
+    <meta name="description" content="tooltips tooltips.js jquery.tooltips.js 弹出层 插件">
+    <meta name="author" content="tianshaojie tianshaojie@msn.com http://www.cnblogs.com/purediy">
+	<link href="css/bootstrap.css" rel="stylesheet">
+	<link href="css/bootstrap-responsive.css" rel="stylesheet">
+	<link href="css/docs.css" rel="stylesheet">
+	<link href="js/google-code-prettify/prettify.css" rel="stylesheet">
+	<link href="css/tooltips.css" rel="stylesheet" id="skin">
+	<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+	  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]--> <!-- Le fav and touch icons -->
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png">
+	<link rel="shortcut icon" href="ico/favicon.png">
+<style>
+/*扩展提示框内的字体样式*/
+.pt {
+	position: absolute;
+	text-align:left;
+	background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid rgba(82, 168, 236, 0.8);
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.1);
+	z-index: 2209;
+	width: auto;
+	height:auto;
+	display:none;
+	font-family: "微软雅黑","Microsoft Yahei",Arial,Helvetica,sans-serif,"宋体";
+    font-size: 13px;
+	color: #515151;
+}
+.pt .cont {
+	height: auto;
+	overflow-y: auto;
+	background-color: #FFFFFF;
+	padding: 10px;
+}
+.pt .out, .pt .in {
+    display: block;
+    font-family: simsun;
+    font-size: 0;
+    height: 0;
+    overflow: visible;
+    position: absolute;
+    width: 0;
+}
+/*************down*****************/
+.pt-down .out, .pt-down .in {
+    border-style: solid dashed dashed;
+}
+.pt-down .out {
+    border-color: rgba(82, 168, 236, 0.8) transparent transparent;
+    border-width: 8px 7px 0;
+    bottom: -8px;
+    left: 28px;
+    top: auto;
+}
+.pt-down .in {
+    border-color: #FFFFFF transparent transparent;
+    border-width: 7px 6px 0;
+    bottom: -7px;
+    left: 29px;
+    top: auto;
+}
+</style>
+<body data-spy="scroll" data-target=".bs-docs-sidebar">
+	<!-- Navbar -->
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+					<span class="icon-bar"></span><span class="icon-bar"></span> <span class="icon-bar"></span>
+				</button>
+				<a class="brand" href="index.html">tooltips</a>
+				<div class="nav-collapse collapse">
+					<p class="navbar-text pull-right">
+					  <a href="http://www.cnblogs.com/purediy/" target="_blank">Blog on cnblogs</a>
+					</p>
+					<ul class="nav">
+						<li class=""><a href="example.html">Examples</a></li>
+						<li class=""><a href="api.html">API</a></li>
+						<li class="active"><a href="skin.html">Skin</a></li>
+						<li class=""><a href="about.html">About</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container"><!-- Docs nav -->
+		<div class="row">
+			<div class="span3 bs-docs-sidebar">
+				<ul class="nav nav-list bs-docs-sidenav">
+					<li><a href="#purebox-invoke"><i class="icon-chevron-right"></i>1. 提示框结构</a></li>
+					<li><a href="#purebox-options"><i class="icon-chevron-right"></i>2. 自定义样式</a></li>
+				</ul>
+			</div>
+
+			<div class="span9"><!-- Download -->
+				<section id="purebox-invoke">
+					<div class="page-header">
+						<h4>1. 静态HTML结构</h4>
+					</div>
+					
+					<div class="bs-docs-example" style="padding-bottom: 24px; height:50px;">
+						
+						<div class="pt pt-down" style="display: block;">
+							<div class="cont">好雨知时节， 当春乃发生。<br>随风潜入夜， 润物细无声。</div>
+							<b class="out"></b>
+							<b class="in"></b>
+						</div>
+
+					</div>
+<pre class="prettyprint linenums">
+&lt;div class="pt pt-down"&gt
+	&lt;div class="cont"&gt &lt;/div&gt
+	&lt;b class="out"&gt &lt;/b&gt
+	&lt;b class="in"&gt &lt;/b&gt
+&lt;/div&gt
+</pre>
+				</section>
+
+				<section id="purebox-options">
+					<div class="page-header">
+						<h4>2. 自定义样式</h4>
+					</div>
+					<table class="table table-bordered table-striped">
+					  <thead>
+					   <tr>
+						 <th style="width: 100px;">类名</th>
+						 <th>描述</th>
+					   </tr>
+					  </thead>
+					  <tbody>
+					   <tr>
+						 <td><code>.pt{}</code></td>
+						 <td>提示框DIV外框架，可以定义边框、背景、字体等，配合CSS3可以设置阴影等，<code>本例中没有使用任何图片</code></td>
+					   </tr>
+					   <tr>
+						 <td><code>.pt .cont {}</code></td>
+						 <td>内容区样式。</td>
+					   </tr>
+					   <tr>
+						 <td><code>.pt .out, .pt .in {}</code></td>
+						 <td>外层、内层三角基本样式。</td>
+					   </tr>
+					   <tr>
+						 <td><code>.pt-down .out, .pt-down .in {}</code></td>
+						 <td>指向为下时三角基本样式。（上左右类似）</td>
+					   </tr>
+					   <tr>
+						 <td><code>.pt-down .out {}</code></td>
+						 <td>指向为下时外三角样式。（上左右类似）</td>
+					   </tr>
+					   <tr>
+						 <td><code>.pt-down .in {}</code></td>
+						 <td>指向为下时内三角样式。（上左右类似）</td>
+					   </tr>
+					  </tbody>
+					</table>
+				</section>
+			</div>
+		</div>
+	</div>
+	
+	<!-- Footer -->
+	<footer class="footer">
+		<div class="container">
+			Designed and build by <a href="https://github.com/tianshaojie" target="_blank">@tianshaojie</a>
+			<p><a href="http://www.cnblogs.com/purediy/" target="_blank">Blog on cnblogs</a></p>
+		</div>
+	</footer>
+	
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="js/jquery.js"></script>
+	<script src="js/bootstrap-transition.js"></script>
+	<script src="js/bootstrap-alert.js"></script>
+	<script src="js/bootstrap-modal.js"></script>
+	<script src="js/bootstrap-dropdown.js"></script>
+	<script src="js/bootstrap-scrollspy.js"></script>
+	<script src="js/bootstrap-tab.js"></script>
+	<script src="js/bootstrap-tooltip.js"></script>
+	<script src="js/bootstrap-popover.js"></script>
+	<script src="js/bootstrap-button.js"></script>
+	<script src="js/bootstrap-collapse.js"></script>
+	<script src="js/bootstrap-carousel.js"></script>
+	<script src="js/bootstrap-typeahead.js"></script>
+	<script src="js/bootstrap-affix.js"></script>
+	<script src="js/holder/holder.js"></script>
+	<script src="js/google-code-prettify/prettify.js"></script>
+	<script src="js/application.js"></script>
+	
+	<script src="js/jquery.pure.tooltips.js"></script>
+</body>
+</html>

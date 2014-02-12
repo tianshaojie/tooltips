@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>tooltips</title>
+	<meta name="keywords" content="tooltips tooltips.js jquery.tooltips.js 弹出层 插件"/>
+    <meta name="description" content="tooltips tooltips.js jquery.tooltips.js 弹出层 插件">
+    <meta name="author" content="tianshaojie tianshaojie@msn.com http://www.cnblogs.com/purediy">
+	<link href="css/bootstrap.css" rel="stylesheet">
+	<link href="css/bootstrap-responsive.css" rel="stylesheet">
+	<link href="css/docs.css" rel="stylesheet">
+	<link href="js/google-code-prettify/prettify.css" rel="stylesheet">
+	<link href="css/tooltips.css" rel="stylesheet" id="skin">
+	<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+	  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]--> <!-- Le fav and touch icons -->
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png">
+	<link rel="shortcut icon" href="ico/favicon.png">
+<style>
+/*扩展提示框内的字体样式*/
+.pt {
+	font-family: "微软雅黑","Microsoft Yahei",Arial,Helvetica,sans-serif,"宋体";
+    font-size: 13px;
+	color: #515151;
+}
+</style>
+</head>
+<body data-spy="scroll" data-target=".bs-docs-sidebar">
+	<!-- Navbar -->
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+					<span class="icon-bar"></span><span class="icon-bar"></span> <span class="icon-bar"></span>
+				</button>
+				<a class="brand" href="index.html">tooltips</a>
+				<div class="nav-collapse collapse">
+					<p class="navbar-text pull-right">
+					  <a href="http://www.cnblogs.com/purediy/" target="_blank">Blog on cnblogs</a>
+					</p>
+					<ul class="nav">
+						<li class="active"><a href="example.html">Examples</a></li>
+						<li class=""><a href="api.html">API</a></li>
+						<li class=""><a href="skin.html">Skin</a></li>
+						<li class=""><a href="about.html">About</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container"><!-- Docs nav -->
+		<div class="row">
+			<div class="span3 bs-docs-sidebar">
+				<ul class="nav nav-list bs-docs-sidenav">
+					<li><a href="#tooltips-invoke"><i class="icon-chevron-right"></i>1. 调用方式</a></li>
+					<li><a href="#tooltips-position"><i class="icon-chevron-right"></i>2. 相对位置</a></li>
+					<li><a href="#tooltips-align"><i class="icon-chevron-right"></i>3. 对齐方式</a></li>
+					<li><a href="#tooltips-call"><i class="icon-chevron-right"></i>4. 显示方式</a></li>
+					<li><a href="#tooltips-custom-hw"><i class="icon-chevron-right"></i>5. 定义高宽</a></li>
+					<li><a href="#tooltips-callback"><i class="icon-chevron-right"></i>6. 关闭后回调</a></li>
+					<li><a href="#tooltips-no-arrow"><i class="icon-chevron-right"></i>7. 不显示箭头</a></li>
+				</ul>
+			</div>
+
+			<div class="span9"><!-- Download -->
+				<section id="tooltips-invoke">
+					<div class="page-header">
+						<h4>1. 简单调用，两种方式，工具集或者包装集</h4>
+					</div>
+					<div class="bs-docs-example" style="padding-bottom: 24px;">
+						<a class="btn btn-primary" data-toggle="modal" id="tooltips">简单调用</a>	&nbsp;&nbsp;
+						<b>详细说明见 <a href="api.html">API</a> 和 <a href="about.html">About</a> </b>
+					</div>
+<pre class="prettyprint linenums">
+/*jQuery工具集调用方式*/
+$('#tooltips').click(function() {
+    var self = this;
+    $.pt({
+        target: self,
+        content: '好雨知时节， 当春乃发生。随风潜入夜， 润物细无声。。。'
+    });
+});
+/*jQuery包装集调用方式*/
+$('#tooltips').pt({
+    position: 't', // 默认属性值
+    align: 'c',	   // 默认属性值
+    content: '好雨知时节， 当春乃发生。随风潜入夜， 润物细无声。。。'
+});
+</pre>
+				</section>
+
+				<section id="tooltips-position">
+					<div class="page-header">
+						<h4>2. 提示框相对目标元素位置</h4>
+					</div>
+					<div class="bs-docs-example" style="padding-bottom: 24px;">
+						<a class="btn btn-primary" data-toggle="modal" id="tooltips-top">提示框位于目标元素上方</a>
+					</div>
+
+					<div class="bs-docs-example" style="padding-bottom: 24px;">
+						<a class="btn btn-primary" data-toggle="modal" id="tooltips-bottom">提示框位于目标元素下方</a>
+					</div>
+
+					<div class="bs-docs-example" style="padding-bottom: 24px;">
+						<a class="btn btn-primary" data-toggle="modal" id="tooltips-left">提示框位于目标元素左方</a>
+					</div>
+
+					<div class="bs-docs-example" style="padding-bottom: 24px;">
+						<a class="btn btn-primary" data-toggle="modal" id="tooltips-right">提示框位于目标元素右方</a>
+					</div>
+					
+				</section>
+
+				<section id="tooltips-align">
+					<div class="page-header">
+						<h4>3. 提示框与目标元素的对齐方式，自动调节箭头显示位置，指向目标元素中间位置</h4>
+					</div>
+					<div class="bs-docs-example" style="padding-bottom: 24px;">
+						<a class="btn btn-primary" data-toggle="modal" id="tooltips-top-left">上方左对齐</a>
+						<a class="btn btn-primary" data-toggle="modal" id="tooltips-top-right">上方右对齐</a>
+					</div>
+
+					<div class="bs-docs-example" style="padding-bottom: 24px;">
+						<a class="btn btn-primary" data-toggle="modal" id="tooltips-bottom-left">下方左对齐</a>
+						<a class="btn btn-primary" data-toggle="modal" id="tooltips-bottom-right">下方右对齐</a>
+					</div>
+
+					<div class="bs-docs-example" style="padding-bottom: 24px;">
+						<a class="btn btn-primary" data-toggle="modal" id="tooltips-left-top">左方上对齐</a>
+						<a class="btn btn-primary" data-toggle="modal" id="tooltips-left-bottom">左方下对齐</a>
+					</div>
+
+					<div class="bs-docs-example" style="padding-bottom: 24px;">
+						<a class="btn btn-primary" data-toggle="modal" id="tooltips-right-top">右方上对齐</a>
+						<a class="btn btn-primary" data-toggle="modal" id="tooltips-right-bottom">右方下对齐</a>
+					</div>
+					<div class="bs-docs-example" style="padding-bottom: 24px;">
+						<a class="btn btn-primary" data-toggle="modal" id="tooltips-top-right-long">上方右对齐，长长长长长长长长长长长长长长长长长长长长长，也能适应</a>
+					</div>
+					<div class="bs-docs-example" style="padding-bottom: 24px;">
+						<a class="btn btn-primary" data-toggle="modal" id="tooltips-right-top-high">右方上对齐</br>高</br>高</br>高</br>高</br>高</br>高</br>高</br>高</br>高</br>高</br>高</br>高</br>也能适应</a>
+					</div>
+				</section>
+
+				<section id="tooltips-call">
+					<div class="page-header">
+						<h4>4. 显示方式</h4>
+					</div>
+					<div class="bs-docs-example" style="padding-bottom: 24px;">
+						<a class="btn btn-primary" data-toggle="modal" id="tooltips-mouse">鼠标掠过显示</a>
+					</div>
+
+					<div class="bs-docs-example" style="padding-bottom: 24px;">
+						<a class="btn btn-primary" data-toggle="modal" id="tooltips-click">鼠标点击显示</a>
+					</div>
+				</section>
+
+				<section id="tooltips-custom-hw">
+					<div class="page-header">
+						<h4>5. 自定义高宽</h4>
+					</div>
+					<div class="bs-docs-example" style="padding-bottom: 24px;">
+						<a class="btn btn-primary" data-toggle="modal" id="tooltips-square">正方形如何</a>
+					</div>
+				</section>
+
+				<section id="tooltips-callback">
+					<div class="page-header">
+						<h4>6. 提示框关闭回调</h4>
+					</div>
+					<div class="bs-docs-example" style="padding-bottom: 24px;">
+						<a class="btn btn-primary" data-toggle="modal" id="triangle-close-callback">关闭后回调</a>
+					</div>
+				</section>
+
+				<section id="tooltips-no-arrow">
+					<div class="page-header">
+						<h4>7. 不显示三角箭头</h4>
+					</div>
+					<div class="bs-docs-example" style="padding-bottom: 24px;">
+						<a class="btn btn-primary" data-toggle="modal" id="tooltips-no-arrow">我不显示三角箭头</a>
+					</div>
+				</section>
+
+			</div>
+		</div>
+	</div>
+	
+	<!-- Footer -->
+	<footer class="footer">
+		<div class="container">
+			Designed and build by <a href="https://github.com/tianshaojie" target="_blank">@tianshaojie</a>
+			<p><a href="http://www.cnblogs.com/purediy/" target="_blank">Blog on cnblogs</a></p>
+		</div>
+	</footer>
+	
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="js/jquery.js"></script>
+	<script src="js/bootstrap-transition.js"></script>
+	<script src="js/bootstrap-alert.js"></script>
+	<script src="js/bootstrap-modal.js"></script>
+	<script src="js/bootstrap-dropdown.js"></script>
+	<script src="js/bootstrap-scrollspy.js"></script>
+	<script src="js/bootstrap-tab.js"></script>
+	<script src="js/bootstrap-tooltip.js"></script>
+	<script src="js/bootstrap-popover.js"></script>
+	<script src="js/bootstrap-button.js"></script>
+	<script src="js/bootstrap-collapse.js"></script>
+	<script src="js/bootstrap-carousel.js"></script>
+	<script src="js/bootstrap-typeahead.js"></script>
+	<script src="js/bootstrap-affix.js"></script>
+	<script src="js/holder/holder.js"></script>
+	<script src="js/google-code-prettify/prettify.js"></script>
+	<script src="js/application.js"></script>
+	
+	<script src="js/jquery.pure.tooltips.js"></script>
+</body>
+</html>

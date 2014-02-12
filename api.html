@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>tooltips</title>
+	<meta name="keywords" content="tooltips tooltips.js jquery.tooltips.js 弹出层 插件"/>
+    <meta name="description" content="tooltips tooltips.js jquery.tooltips.js 弹出层 插件">
+    <meta name="author" content="tianshaojie tianshaojie@msn.com http://www.cnblogs.com/purediy">
+	<link href="css/bootstrap.css" rel="stylesheet">
+	<link href="css/bootstrap-responsive.css" rel="stylesheet">
+	<link href="css/docs.css" rel="stylesheet">
+	<link href="js/google-code-prettify/prettify.css" rel="stylesheet">
+	<link href="css/tooltips.css" rel="stylesheet" id="skin">
+	<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+	  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]--> <!-- Le fav and touch icons -->
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png">
+	<link rel="shortcut icon" href="ico/favicon.png">
+<style>
+/*扩展提示框内的字体样式*/
+.pt {
+	font-family: "微软雅黑","Microsoft Yahei",Arial,Helvetica,sans-serif,"宋体";
+    font-size: 13px;
+	color: #515151;
+}
+</style>
+</head>
+<body data-spy="scroll" data-target=".bs-docs-sidebar">
+	<!-- Navbar -->
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+					<span class="icon-bar"></span><span class="icon-bar"></span> <span class="icon-bar"></span>
+				</button>
+				<a class="brand" href="index.html">tooltips</a>
+				<div class="nav-collapse collapse">
+					<p class="navbar-text pull-right">
+					  <a href="http://www.cnblogs.com/purediy/" target="_blank">Blog on cnblogs</a>
+					</p>
+					<ul class="nav">
+						<li class=""><a href="example.html">Examples</a></li>
+						<li class="active"><a href="api.html">API</a></li>
+						<li class=""><a href="skin.html">Skin</a></li>
+						<li class=""><a href="about.html">About</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container"><!-- Docs nav -->
+		<div class="row">
+			<div class="span3 bs-docs-sidebar">
+				<ul class="nav nav-list bs-docs-sidenav">
+					<li><a href="#tooltips-invoke"><i class="icon-chevron-right"></i>1. 用法示例</a></li>
+					<li><a href="#tooltips-options"><i class="icon-chevron-right"></i>2. 配置参数</a></li>
+				</ul>
+			</div>
+
+			<div class="span9"><!-- Download -->
+				<section id="tooltips-invoke">
+					<div class="page-header">
+						<h4>1. 用法示例</h4>
+					</div>
+					
+<pre class="prettyprint linenums">
+&lt;button class="btn btn-primary" id="tooltips"&gttooltips&lt;/button&gt
+</pre>
+<div class="bs-docs-example" style="padding-bottom: 24px;">
+						<a class="btn btn-primary" data-toggle="modal" id="tooltips">简单调用</a>
+					</div>
+<pre class="prettyprint linenums">
+/*jQuery工具集调用方式*/
+$('#tooltips').click(function() {
+    var self = this;
+    $.pt({
+        target: self,
+        content: '好雨知时节， 当春乃发生。随风潜入夜， 润物细无声。。。'
+    });
+});
+/*jQuery包装集调用方式*/
+$('#tooltips').pt({
+    position: 't', // 默认属性值
+    align: 'c',	   // 默认属性值
+    content: '好雨知时节， 当春乃发生。随风潜入夜， 润物细无声。。。'
+});
+</pre>
+				</section>
+
+				<section id="tooltips-options">
+					<div class="page-header">
+						<h4>2. 配置参数</h4>
+					</div>
+					<table class="table table-bordered table-striped">
+					  <thead>
+					   <tr>
+						 <th style="width: 100px;">名称</th>
+						 <th style="width: 50px;">类型</th>
+						 <th style="width: 50px;">默认值</th>
+						 <th>描述</th>
+					   </tr>
+					  </thead>
+					  <tbody>
+					   <tr>
+						 <td><code>target</code></td>
+						 <td>jQeury Obj</td>
+						 <td>null</td>
+						 <td>目标元素，不能为空。</td>
+					   </tr>
+					   <tr>
+						 <td><code>position</code></td>
+						 <td>String</td>
+						 <td>'t'</td>
+						 <td>提示框相对目标元素位置，t=top,b=bottom,r=right,l=left。</td>
+					   </tr>
+					   <tr>
+						 <td><code>align</code></td>
+						 <td>String</td>
+						 <td>'t'</td>
+						 <td>提示框与目标元素的对齐方式，自动调节箭头显示位置，c=center, t=top, b=bottom, l=left, r=right [postion=t|b时，align=l|r有效][position=t|b时，align=t|d有效]。</td>
+					   </tr>
+					   <tr>
+						 <td><code>arrow</code></td>
+						 <td>Boolean</td>
+						 <td>true</td>
+						 <td>是否显示箭头。</td>
+					   </tr>
+					   <tr>
+						 <td><code>content</code></td>
+						 <td>String<br>HTMLElement<br>jQeury Obj</td>
+						 <td>''</td>
+						 <td>消息内容。</td>
+					   </tr>
+					   <tr>
+						 <td><code>width</code></td>
+						 <td>Number</td>
+						 <td>200</td>
+						 <td>设置弹出层内容区宽度。</td>
+					   </tr>
+					   <tr>
+						 <td><code>height</code></td>
+						 <td>Number</td>
+						 <td>'auto'</td>
+						 <td>设置弹出层内容区高度。</td>
+					   </tr>
+					   <tr>
+						 <td><code>autoClose</code></td>
+						 <td>Boolean</td>
+						 <td>true</td>
+						 <td>是否自动关闭。</td>
+					   </tr>
+					   <tr>
+						 <td><code>time</code></td>
+						 <td>Number</td>
+						 <td>2000</td>
+						 <td>自动关闭延时时长，毫秒。</td>
+					   </tr>
+					   <tr>
+						 <td><code>leaveClose</code></td>
+						 <td>Boolean</td>
+						 <td>true</td>
+						 <td>提示框失去焦点后关闭。</td>
+					   </tr>
+
+
+					   <tr>
+						 <td><code>close</code></td>
+						 <td>Function</td>
+						 <td>null</td>
+						 <td>关闭回调函数。</td>
+					   </tr>
+					  </tbody>
+					</table>
+				</section>
+
+			</div>
+		</div>
+	</div>
+	
+	<!-- Footer -->
+	<footer class="footer">
+		<div class="container">
+			Designed and build by <a href="https://github.com/tianshaojie" target="_blank">@tianshaojie</a>
+			<p><a href="http://www.cnblogs.com/purediy/" target="_blank">Blog on cnblogs</a></p>
+		</div>
+	</footer>
+	
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="js/jquery.js"></script>
+	<script src="js/bootstrap-transition.js"></script>
+	<script src="js/bootstrap-alert.js"></script>
+	<script src="js/bootstrap-modal.js"></script>
+	<script src="js/bootstrap-dropdown.js"></script>
+	<script src="js/bootstrap-scrollspy.js"></script>
+	<script src="js/bootstrap-tab.js"></script>
+	<script src="js/bootstrap-tooltip.js"></script>
+	<script src="js/bootstrap-popover.js"></script>
+	<script src="js/bootstrap-button.js"></script>
+	<script src="js/bootstrap-collapse.js"></script>
+	<script src="js/bootstrap-carousel.js"></script>
+	<script src="js/bootstrap-typeahead.js"></script>
+	<script src="js/bootstrap-affix.js"></script>
+	<script src="js/holder/holder.js"></script>
+	<script src="js/google-code-prettify/prettify.js"></script>
+	<script src="js/application.js"></script>
+	
+	<script src="js/jquery.pure.tooltips.js"></script>
+</body>
+</html>

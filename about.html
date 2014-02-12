@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>tooltips</title>
+	<meta name="keywords" content="tooltips tooltips.js jquery.tooltips.js 弹出层 插件"/>
+    <meta name="description" content="tooltips tooltips.js jquery.tooltips.js 弹出层 插件">
+    <meta name="author" content="tianshaojie tianshaojie@msn.com http://www.cnblogs.com/purediy">
+	<link href="css/bootstrap.css" rel="stylesheet">
+	<link href="css/bootstrap-responsive.css" rel="stylesheet">
+	<link href="css/docs.css" rel="stylesheet">
+	<link href="js/google-code-prettify/prettify.css" rel="stylesheet">
+	<link href="css/purebox-metro.css" rel="stylesheet" id="skin">
+	<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+	  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]--> <!-- Le fav and touch icons -->
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png">
+	<link rel="shortcut icon" href="ico/favicon.png">
+</head>
+<body data-spy="scroll" data-target=".bs-docs-sidebar">
+	<!-- Navbar -->
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+					<span class="icon-bar"></span><span class="icon-bar"></span> <span class="icon-bar"></span>
+				</button>
+				<a class="brand" href="index.html">tooltips</a>
+				<div class="nav-collapse collapse">
+					<p class="navbar-text pull-right">
+					  <a href="http://www.cnblogs.com/purediy/" target="_blank">Blog on cnblogs</a>
+					</p>
+					<ul class="nav">
+						<li class=""><a href="example.html">Examples</a></li>
+						<li class=""><a href="api.html">API</a></li>
+						<li class=""><a href="skin.html">Skin</a></li>
+						<li class="active"><a href="about.html">About</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+      <h4>版本：1.0.0</h4>
+      * 位置：提示框可显示在目标元素的上下左右 <br>
+	  * 对齐：提示框与目标元素的对齐方式，自动调节箭头显示位置，指向目标元素中间位置 <br>
+	  * 支持：鼠标划过和点击显示 <br>
+	  * 支持：自定义高宽 <br>
+      * 支持：提示框自动关闭 <br>
+	  * 支持：提示框失去焦点关闭 <br>
+	  * 支持：提示框关闭回调 <br>
+	  * 支持：IE6+, Firefox, Chorme <br>
+	  * 配置参数：	
+<pre class="prettyprint ">
+{
+	position: 't',     //提示框相对目标元素位置 t=top,b=bottom,r=right,l=left
+	align: 'c',        //提示框与目标元素的对齐方式，自动调节箭头显示位置，指向目标元素中间位置
+		           //c=center, t=top, b=bottom, l=left, r=right
+		           //[postion=t|b时，align=l|r有效][position=t|b时，align=t|d有效]
+	arrow: true,       //是否显示箭头
+	content: '',       //内容
+	width: 200,        //宽度
+	hight: 'auto',     //高度
+	target: null,      //目标元素
+	autoClose: true,   //是否自动关闭
+	time: 2000,        //自动关闭延时时长
+	leaveClose: false, //提示框失去焦点后关闭
+	close: null        //关闭回调函数
+}
+</pre>
+
+    </div>
+	<!-- Footer -->
+	<footer class="footer">
+		<div class="container">
+			Designed and build by <a href="https://github.com/tianshaojie" target="_blank">@tianshaojie</a>
+			<p><a href="http://www.cnblogs.com/purediy/" target="_blank">Blog on cnblogs</a></p>
+		</div>
+	</footer>
+	
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="js/jquery.js"></script>
+	<script src="js/bootstrap-transition.js"></script>
+	<script src="js/bootstrap-alert.js"></script>
+	<script src="js/bootstrap-modal.js"></script>
+	<script src="js/bootstrap-dropdown.js"></script>
+	<script src="js/bootstrap-scrollspy.js"></script>
+	<script src="js/bootstrap-tab.js"></script>
+	<script src="js/bootstrap-tooltip.js"></script>
+	<script src="js/bootstrap-popover.js"></script>
+	<script src="js/bootstrap-button.js"></script>
+	<script src="js/bootstrap-collapse.js"></script>
+	<script src="js/bootstrap-carousel.js"></script>
+	<script src="js/bootstrap-typeahead.js"></script>
+	<script src="js/bootstrap-affix.js"></script>
+	<script src="js/holder/holder.js"></script>
+	<script src="js/google-code-prettify/prettify.js"></script>
+	<script src="js/application.js"></script>
+	
+	<script src="js/jquery.purebox.js"></script>
+	<script src="js/jquery.resizable.js"></script>
+</body>
+</html>
