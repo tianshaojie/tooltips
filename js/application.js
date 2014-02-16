@@ -303,7 +303,7 @@ $('#tooltips-square').pt({
 	content: content
 });
 
-$('#triangle-close-callback').pt({
+$('#tooltips-close-callback').pt({
 	content:content,
 	close:function() {
 		alert('closed');
