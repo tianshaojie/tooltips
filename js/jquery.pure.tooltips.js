@@ -9,13 +9,13 @@
 		min = Math.min;
 	$.pt = $.pureToolTips = function(options) {
 		var opts = $.extend({
+			target 		: null,		//目标元素，不能为空
 			position 	: 't',		//提示框相对目标元素位置 t=top,b=bottom,r=right,l=left
 			align		: 'c',		//提示框与目标元素的对齐方式，自动调节箭头显示位置，指向目标元素中间位置，c=center, t=top, b=bottom, l=left, r=right [postion=t|b时，align=l|r有效][position=t|b时，align=t|d有效]
 			arrow		: true,		//是否显示箭头
 			content 	: '',		//内容
 			width 		: 200,		//宽度
 			height 		: 'auto',	//高度
-			target 		: null,		//目标元素
 			autoClose 	: true,		//是否自动关闭
 			time 		: 2000,		//自动关闭延时时长
 			leaveClose 	: false,	//提示框失去焦点后关闭
@@ -138,12 +138,13 @@
 		}
 		//设置提示框失去焦点关闭
 		function leaveClose() {
-			$pt.mouseleave(function(e) {
+			//先解绑再绑定，不然会形成事件链
+			$pt.unbind('mouseleave').mouseleave(function(e) {
 				$pt.hide();
 				$.isFunction(opts.close) && opts.close();
-			}).mouseenter(function() {
+			}).unbind('mouseenter').mouseenter(function() {
 				window.ptt && clearTimeout(ptt);
-			}).show();
+			});
 		}
 		return init();
 	};
